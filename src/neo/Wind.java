@@ -79,6 +79,7 @@ public class Wind {
 				endPoz < s.length() && 
 				(s.toCharArray()[endPoz] != ' ' && s.toCharArray()[endPoz] != '\n'))
 			endPoz++;
+		System.out.println("HELLO!");
 		try {
 			if (startPoz != endPoz)	
 				BblBod.setText(ne.Pars(s.substring(startPoz, endPoz)));
