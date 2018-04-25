@@ -102,7 +102,7 @@ public class ne {
 					}
 				}
 			}
-			//Safe();
+			Safe();
 			return result;
 		} catch (Exception e) {
 			return ("Упало!!!! Парс сломался!!!! Караул!!!! Кто спасет нас от беды?!!!");
