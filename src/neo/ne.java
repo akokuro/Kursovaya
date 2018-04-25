@@ -31,12 +31,14 @@ public class ne {
 	public static String l;
 	public static String query;
 
+/*	
 	public static void main(String s) throws IOException {
 		ReadWord();
 		Pars(l);
 		Safe();
 	}
-
+*/
+	
 	public static void ReadWord() {
 		Scanner b = new Scanner(System.in);
 		l = b.nextLine();
@@ -59,11 +61,10 @@ public class ne {
 					"Упа~ло при попытке закодировать строку в кусок УРЛ, эх - беда, печаль, можете попробовать снова");
 			e.printStackTrace();
 		}
-		System.out.println("ЭЭ");
-		
 		try {
 			Path file = Paths.get("C:\\Games\\Magic.txt");
 			page = new URL("http://rifma-online.ru/rifma/" + query + "/");
+			result = "";
 			try {
 				InputStream in = page.openStream();
 				Files.copy(in, file, StandardCopyOption.REPLACE_EXISTING);
@@ -72,6 +73,7 @@ public class ne {
 			}
 			
 			Scanner a = new Scanner(page.openStream());
+			boolean flag = 1 == 2;
 			System.out.println(a);
 			while (a.hasNext()) {
 				str = a.nextLine();
@@ -90,14 +92,17 @@ public class ne {
 							last_ind++;
 						}
 						word = new String(word.getBytes(), "UTF-8");
-						System.out.println(word);
+						if (!flag) {
+							System.out.println(word);
+							flag = !flag;
+						}
 						result += word;
 						result = result + "\r\n";
 						word = "";
 					}
 				}
 			}
-			Safe();
+			//Safe();
 			return result;
 		} catch (Exception e) {
 			return ("Упало!!!! Парс сломался!!!! Караул!!!! Кто спасет нас от беды?!!!");
